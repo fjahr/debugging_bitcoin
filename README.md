@@ -188,8 +188,18 @@ Using `LogPrintf`, as seen before, you will be able to see the output in the com
 In case you have not done it yet, compile bitcoin for debugging (change other config flags as you need them).
 
 ```
+$ cd depends
+$ make HOST=arm-apple-darwin
+
+```
+
+```
+$ ./autogen.sh
+```
+
+```
 $ make clean
-$ ./configure CXXFLAGS="-O0 -ggdb3"
+$ ./configure CXXFLAGS="-O0 -ggdb3" --prefix=$PWD/depends/arm-apple-darwin
 $ make -j "$(($(sysctl -n hw.physicalcpu)+1))"
 ```
 
